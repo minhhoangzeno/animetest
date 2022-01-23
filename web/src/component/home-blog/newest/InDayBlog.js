@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import moment from 'moment';
 import { firestore } from '../../../utils/firebaseInit';
+import Link from 'next/link';
+import { convertUrlSlug } from '../../../utils/RegexUrl';
 export default function InDayBlog() {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
@@ -38,26 +40,29 @@ export default function InDayBlog() {
             <div className='anime-news__right--video collumn-medium'>
                 {blogs.length > 0 && blogs.map((blog, index) => {
                     return (
-                        <div className={`item__video ${index > 3 && ` lg-hidden`} `} key={index} >
-                            <div className='thumbnail__video'>
-                                <div className='wrapper'>
-                                    {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
-                                        : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
-                                    }
+                        <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
+                            <div className={`item__video ${index > 3 && ` lg-hidden`} `} key={index} >
+                                <div className='thumbnail__video'>
+                                    <div className='wrapper'>
+                                        {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
+                                            : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
+                                        }
+                                    </div>
+                                </div>
+                                <div className='content__video'>
+                                    <a href='#'>
+                                        <h3 className="video-item-title">{blog?.title}</h3>
+                                    </a>
+                                    <span className="video-item-date">
+                                        {blog?.createdDate?.toDate()?.toLocaleString('vi')}
+                                    </span>
+                                    <p className="item-description small__thumbnail--description">
+                                        {blog?.metaDescription}
+                                    </p>
                                 </div>
                             </div>
-                            <div className='content__video'>
-                                <a href='#'>
-                                    <h3 className="video-item-title">{blog?.title}</h3>
-                                </a>
-                                <span className="video-item-date">
-                                    {blog?.createdDate?.toDate()?.toLocaleString('vi')}
-                                </span>
-                                <p className="item-description small__thumbnail--description">
-                                    {blog?.metaDescription}
-                                </p>
-                            </div>
-                        </div>
+                        </Link>
+
 
                     )
                 })}
