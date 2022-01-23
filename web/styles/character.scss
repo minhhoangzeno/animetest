@@ -86,6 +86,10 @@
             @media (max-width: 639px){
                 height: 274px;
             }
+            *{
+                height: 100% !important;
+                width: 100%;
+            }
         }
     }
 }

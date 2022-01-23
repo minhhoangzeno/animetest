@@ -5,6 +5,8 @@ import SmallThumbnail from '../../../images/blog/small-thumbnail.jpg'
 import Image from 'next/image'
 import { searchBlogByCategory } from '../../../utils/searchBlogByCategory';
 import { searchCategoryByTitle } from '../../../utils/searchCategoryByTitle';
+import Link from 'next/link';
+import { convertUrlSlug } from '../../../utils/RegexUrl';
 export default function AnimeNomination() {
     const [blogLefts, setBlogLefts] = useState([]);
     const [blogMediums, setBlogMediums] = useState([]);
@@ -45,40 +47,12 @@ export default function AnimeNomination() {
                 <div className='anime-nomination__col large__col'>
                     {blogLefts.length > 0 && blogLefts.map((blog, index) => {
                         return (
-                            <div className='large__col--item' key={index} >
-                                <div className='wrapper'>
-                                    {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
-                                        : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
-                                    }
-                                    <div className='item-meta'>
-                                        <a href='#'>
-                                            <span className="item-genre">Đề cử anime </span>
-                                        </a>
-                                        <span className="item-date">
-                                            / {blog?.createdDate.toDate().toLocaleString('vi')}
-                                        </span>
-                                        <a href='#'>
-                                            <h3 className='item__title'>
-                                                {blog?.title}
-                                            </h3>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-                <div className='anime-nomination__col medium__col'>
-                    {blogMediums.length > 0 && blogMediums.map((blog, index) => {
-                        return (
-                            <div className={`medium__col--item ${index == 3 && 'sm-hidden'}`} key={index} >
-                                <div className='wrapper'>
-                                    <div className='top__image'>
-                                        {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='300' height="225" />
-                                            : <Image src={require('../../../images/item.jpg')} width='300' height="225" />
+                            <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
+                                <div className='large__col--item' key={index} >
+                                    <div className='wrapper'>
+                                        {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
+                                            : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
                                         }
-                                    </div>
-                                    <div className='bottom__content'>
                                         <div className='item-meta'>
                                             <a href='#'>
                                                 <span className="item-genre">Đề cử anime </span>
@@ -94,7 +68,41 @@ export default function AnimeNomination() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
+
+
+                        )
+                    })}
+                </div>
+                <div className='anime-nomination__col medium__col'>
+                    {blogMediums.length > 0 && blogMediums.map((blog, index) => {
+                        return (
+                            <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
+                                <div className={`medium__col--item ${index == 3 && 'sm-hidden'}`} key={index} >
+                                    <div className='wrapper'>
+                                        <div className='top__image'>
+                                            {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='300' height="225" />
+                                                : <Image src={require('../../../images/item.jpg')} width='300' height="225" />
+                                            }
+                                        </div>
+                                        <div className='bottom__content'>
+                                            <div className='item-meta'>
+                                                <a href='#'>
+                                                    <span className="item-genre">Đề cử anime </span>
+                                                </a>
+                                                <span className="item-date">
+                                                    / {blog?.createdDate.toDate().toLocaleString('vi')}
+                                                </span>
+                                                <a href='#'>
+                                                    <h3 className='item__title'>
+                                                        {blog?.title}
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
                         )
                     })}
                 </div>
@@ -107,18 +115,20 @@ export default function AnimeNomination() {
                     <div className='wrapper'>
                         {blogRights.length > 0 && blogRights.map((blog, index) => {
                             return (
-                                <div className='xs-item' key={index} >
-                                    <div className='item__small--thumbnail item__thumbnail'>
-                                        {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='300' height="225" />
-                                            : <Image src={require('../../../images/item.jpg')} width='300' height="225" />
-                                        }
+                                <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
+                                    <div className='xs-item' key={index} >
+                                        <div className='item__small--thumbnail item__thumbnail'>
+                                            {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='300' height="225" />
+                                                : <Image src={require('../../../images/item.jpg')} width='300' height="225" />
+                                            }
+                                        </div>
+                                        <div className='item__small--content'>
+                                            <a href='#'>
+                                                <h3 className="item__title">{blog?.title}</h3>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div className='item__small--content'>
-                                        <a href='#'>
-                                            <h3 className="item__title">{blog?.title}</h3>
-                                        </a>
-                                    </div>
-                                </div>
+                                </Link>
                             )
                         })}
                     </div>

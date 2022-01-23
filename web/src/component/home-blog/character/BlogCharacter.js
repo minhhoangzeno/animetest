@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { searchBlogByCategory } from '../../../utils/searchBlogByCategory';
+import Link from 'next/link';
+import { convertUrlSlug } from '../../../utils/RegexUrl';
 
 
 export default function BlogCharacter({ categoryTitle }) {
@@ -24,6 +26,7 @@ export default function BlogCharacter({ categoryTitle }) {
         setBlogLists(respList)
     }
     return (
+
         <div className='collumn-medium collumn-left'>
             <div className='section section__title section-title-small'>
                 <div className='section__title--border'></div>
@@ -32,27 +35,30 @@ export default function BlogCharacter({ categoryTitle }) {
                 </div>
             </div>
             {blogBigs.length > 0 &&
-                <div className="item__medium">
-                    <div className="item__medium--thumbnail">
-                        <a href="#">
+                <Link href={`/blog/${convertUrlSlug(blogBigs[0].title.substring(0, 35))}-${blogBigs[0].id}`} >
+                    <div className="item__medium">
+                        <div className="item__medium--thumbnail">
                             {blogBigs[0]?.photoURL ? <Image unoptimized loader={() => { return `${blogBigs[0]?.photoURL}` }} src={blogBigs[0]?.photoURL} width='500' height="225" />
                                 : <Image src={require('../../../images/item.jpg')} width='300' height="325" />
                             }
-                        </a>
-                    </div>
-                    <div className="item__medium--meta">
-                        <a href="#"><h3 className="item-medium-title">{blogBigs[0]?.title}</h3></a>
-                        <div className="item-medium-info">
-                            <span>{blogBigs[0]?.createdDate?.toDate().toLocaleString('vi')}</span>
-                            <span> - {blogBigs[0]?.views} lượt xem</span>
+                        </div>
+                        <div className="item__medium--meta">
+                            <a href="#"><h3 className="item-medium-title">{blogBigs[0]?.title}</h3></a>
+                            <div className="item-medium-info">
+                                <span>{blogBigs[0]?.createdDate?.toDate().toLocaleString('vi')}</span>
+                                <span> - {blogBigs[0]?.views} lượt xem</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Link>
 
             }
             {blogLists.length > 0 && blogLists.map((blog, index) => {
                 return (
-                    <a className="item-text" key={index} ><li>{blog?.title}</li></a>
+                    <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
+                        <a className="item-text" key={index} ><li>{blog?.title}</li></a>
+
+                    </Link>
                 )
             })}
         </div>

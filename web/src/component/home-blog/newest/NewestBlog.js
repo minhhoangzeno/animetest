@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import moment from 'moment';
 import { firestore } from '../../../utils/firebaseInit';
+import Link from 'next/link';
+import { convertUrlSlug } from '../../../utils/RegexUrl';
 export default function NewestBlog() {
     const [blogs, setBlogs] = useState([])
     const [loading, setLoading] = useState(false)
@@ -48,30 +50,33 @@ export default function NewestBlog() {
             <div className='wrapper-item'>
                 {blogs.length > 0 && blogs.map((blog, index) => {
                     return (
-                        <div className='anime-news__left--item' key={index} >
-                            <div className='item__thumbnail'>
-                                {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
-                                    : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
-                                }
+                        <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
+                            <div className='anime-news__left--item' key={index} >
+                                <div className='item__thumbnail'>
+                                    {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
+                                        : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
+                                    }
+                                </div>
+                                <div className='item__content'>
+                                    <a href='#'>
+                                        <span className="item-genre genre-2 has-background lg-hidden">{blog?.category?.title}</span>
+                                    </a>
+                                    <a href='#'>
+                                        <h3 className="item__title">{blog?.title}</h3>
+                                    </a>
+                                    <span className="item-date">{blog?.createdDate?.toDate().toLocaleString('vi')}</span>
+                                    &nbsp;
+                                    <span className="item-views"> - {blog?.views} lượt xem</span>
+                                    <p className="item-description big__thumbnail--description">
+                                        {blog?.metaDescription}
+                                    </p>
+                                </div>
                             </div>
-                            <div className='item__content'>
-                                <a href='#'>
-                                    <span className="item-genre genre-2 has-background lg-hidden">{blog?.category?.title}</span>
-                                </a>
-                                <a href='#'>
-                                    <h3 className="item__title">{blog?.title}</h3>
-                                </a>
-                                <span className="item-date">{blog?.createdDate?.toDate().toLocaleString('vi')}</span>
-                                &nbsp;
-                                <span className="item-views"> - {blog?.views} lượt xem</span>
-                                <p className="item-description big__thumbnail--description">
-                                    {blog?.metaDescription}
-                                </p>
-                            </div>
-                        </div>
+                        </Link>
+
                     )
                 })}
-                {hasMore && <div className="column-more" onClick={() => search(true)} style={{cursor:'pointer'}} >XEM THÊM</div>} 
+                {hasMore && <div className="column-more" onClick={() => search(true)} style={{ cursor: 'pointer' }} >XEM THÊM</div>}
             </div>
         </div>
     )

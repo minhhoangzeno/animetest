@@ -47,6 +47,16 @@
     .wrapper {
         height: 100%;
         width: 100%;
+        .wrapper-image{
+            span{
+                width: 100% !important;
+                height: 100% !important;
+                img{
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+            }   
+        }
     }
     .rps-iframe {
         width: 100%;
@@ -160,6 +170,14 @@
             float: left;
             margin-right: 10px;
             overflow: hidden;
+            span{
+                width: 100% !important;
+                height: 100% !important;
+                img{
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+            }
             @media (min-width: 1024px) {
                 width: 142px;
                 height: 80px;
