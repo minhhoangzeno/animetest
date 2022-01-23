@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { convertUrlSlug } from '../../../utils/RegexUrl';
 import { searchBlogByCategory } from '../../../utils/searchBlogByCategory';
 import NewsManga from './NewsManga';
 
@@ -59,25 +57,23 @@ export default function JapanCultural() {
                     <div className='wrapper-medium'>
                         {blogLists.length > 0 && blogLists.map((blog, index) => {
                             return (
-                                <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
-                                    <div className='item__medium' key={index} >
-                                        <div className='item__thumbnail'>
-                                            {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
-                                                : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
-                                            }
-                                        </div>
-                                        <div className='item__content'>
-                                            <a href='#'>
-                                                <h3 className="item__title">{blog?.title}</h3>
-                                            </a>
-                                            <span className="item-date">{blog?.createdDate?.toDate().toLocaleString('vi')}</span>
-                                            &nbsp;
-                                            <span className="item-views"> - {blog?.views} lượt xem</span>
-                                            <p className="item-description">{blog?.metaDescription}</p>
-                                        </div>
+                                <div className='item__medium' key={index} > 
+                                    <div className='item__thumbnail'>
+                                        {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
+                                            : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
+                                        }
                                     </div>
+                                    <div className='item__content'>
+                                        <a href='#'>
+                                            <h3 className="item__title">{blog?.title}</h3>
+                                        </a>
+                                        <span className="item-date">{blog?.createdDate?.toDate().toLocaleString('vi')}</span>
+                                        &nbsp;
+                                        <span className="item-views"> - {blog?.views} lượt xem</span>
+                                        <p className="item-description">{blog?.metaDescription}</p>
+                                    </div>
+                                </div>
 
-                                </Link>
                             )
                         })}
                     </div>

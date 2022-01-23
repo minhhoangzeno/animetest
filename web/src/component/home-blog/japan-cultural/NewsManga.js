@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { searchBlogByCategory } from '../../../utils/searchBlogByCategory';
 import Image from 'next/image';
-import Link from 'next/link';
-import { convertUrlSlug } from '../../../utils/RegexUrl';
 
 
 export default function NewsManga() {
@@ -54,21 +52,18 @@ export default function NewsManga() {
                 <div className='wrapper xs__col'>
                     {blogLists.length > 0 && blogLists.map((blog, index) => {
                         return (
-                            <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
-                                <div className={`xs-item ${index > 2 && ' lg-hiden'}`} key={index} >
-                                    <div className='item__small--thumbnail item__thumbnail'>
-                                        {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
-                                            : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
-                                        }
-                                    </div>
-                                    <div className='item__small--content item__content'>
-                                        <a href='#'>
-                                            <h3 className="item__title">{blog?.title}</h3>
-                                        </a>
-                                    </div>
+                            <div className={`xs-item ${index > 2 && ' lg-hiden'}`} key={index} >
+                                <div className='item__small--thumbnail item__thumbnail'>
+                                    {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
+                                        : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
+                                    }
                                 </div>
-                            </Link>
-
+                                <div className='item__small--content item__content'>
+                                    <a href='#'>
+                                        <h3 className="item__title">{blog?.title}</h3>
+                                    </a>
+                                </div>
+                            </div>
 
                         )
                     })}

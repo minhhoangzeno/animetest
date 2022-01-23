@@ -28,10 +28,6 @@
         .wrapper{
             span{
                 width: 100% !important;
-                height: 100% !important;
-                img{
-                    height: 100% ;
-                }
             }
         }
     }
@@ -50,17 +46,6 @@
     @media (max-width: 479px){
         width: 177px;
         gap: 10px;
-    }
-    &--item{
-        .wrapper{
-            span{
-                width: 100% !important;
-                height: 100% !important;
-                img{
-                    height: 100% ;
-                }
-            }
-        }
     }
     .item-meta {
         h3.item__title{
@@ -94,15 +79,6 @@
     }
     @media (max-width: 1023px){
         display: none;
-    }
-    .wrapper{
-        span{
-            width: 100% !important;
-            height: 100% !important;
-            img{
-                height: 100% ;
-            }
-        }
     }
     .banner {
         width: 100%;
