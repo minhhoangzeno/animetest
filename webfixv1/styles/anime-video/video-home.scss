@@ -551,6 +551,13 @@ img {
         a {
             display: block;
         }
+        span {
+            height: 100% !important;
+            width: 100% !important;
+            img {
+                height: 100% !important;
+            }
+        }
         img {
             height: 100%;
             @media (min-width: 1024px) {
@@ -679,19 +686,24 @@ img {
     @media (max-width: 479px) {
         width: calc((100% - 10px) / 2);
     }
-    
+
     &:hover {
         img {
             opacity: 0.8;
         }
     }
-    img {
-        width: 100%;
-        height: 100%;
-        @media (min-width: 1024px) {
-            transition: opacity 0.3s ease-in-out;
+    span {
+        height: 100% !important;
+        width: 100% !important;
+        img {
+            width: 100% !important;
+            height: 100% !important;
+            @media (min-width: 1024px) {
+                transition: opacity 0.3s ease-in-out;
+            }
         }
     }
+
     .manga-item-title {
         bottom: 0;
         color: #fff !important;
@@ -730,18 +742,18 @@ img {
             font-size: 14px;
             padding: 30px 5px 5px;
         }
-        @media (min-width: 768px) and (max-width: 799px){
+        @media (min-width: 768px) and (max-width: 799px) {
             font-size: 14px;
             padding: 30px 5px 5px;
         }
-        @media (min-width: 640px) and (max-width: 767px){
+        @media (min-width: 640px) and (max-width: 767px) {
             font-size: 16px;
             margin-top: 5px;
         }
-        @media (min-width: 412px) and (max-width: 639px){
+        @media (min-width: 412px) and (max-width: 639px) {
             font-size: 15px;
         }
-        @media (max-width: 411px){
+        @media (max-width: 411px) {
             font-size: 14px;
         }
     }
@@ -763,10 +775,10 @@ img {
             text-shadow: 0 0 15px #000;
             top: 0;
         }
-        @media (min-width: 768px) and (max-width: 1023px){
+        @media (min-width: 768px) and (max-width: 1023px) {
             padding: 5px;
         }
-        @media (min-width: 480px) and (max-width: 767px){
+        @media (min-width: 480px) and (max-width: 767px) {
             padding: 10px;
         }
 
@@ -784,7 +796,7 @@ img {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    @media (max-width: 359px){
+    @media (max-width: 359px) {
         gap: 5px;
     }
     &__item {
@@ -792,15 +804,15 @@ img {
         overflow: hidden;
         position: relative;
         height: auto;
-        @media (max-width: 767px){
-            width: calc((100% - 10px) /2);
+        @media (max-width: 767px) {
+            width: calc((100% - 10px) / 2);
         }
         &:hover {
             .collection__item--thumbnail {
                 opacity: 0.8;
             }
         }
-        a{
+        a {
             display: inline;
         }
         &--thumbnail {
@@ -914,7 +926,7 @@ img {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    @media (max-width: 359px){
+    @media (max-width: 359px) {
         gap: 5px;
     }
     &__item {
@@ -925,13 +937,13 @@ img {
         position: relative;
         padding: 10px 0 0 10px;
         cursor: pointer;
-        @media (max-width: 1023px){
-            width: calc((100% - 20px) /3);
+        @media (max-width: 1023px) {
+            width: calc((100% - 20px) / 3);
         }
-        @media (max-width: 767px){
-            width: calc((100% - 10px)/2) ;
+        @media (max-width: 767px) {
+            width: calc((100% - 10px) / 2);
         }
-        @media (max-width: 639px){
+        @media (max-width: 639px) {
             width: 100%;
         }
         &:hover {
@@ -942,25 +954,25 @@ img {
         @media (min-width: 1366px) {
             height: 95px;
         }
-        @media (min-width: 1280px) and (max-width: 1365px){
+        @media (min-width: 1280px) and (max-width: 1365px) {
             height: 92px;
         }
-        @media (min-width: 1024px) and (max-width: 1279px){
+        @media (min-width: 1024px) and (max-width: 1279px) {
             height: 88px;
         }
-        @media (min-width: 768px) and (max-width: 1023px){
+        @media (min-width: 768px) and (max-width: 1023px) {
             height: 90px;
         }
-        @media (min-width: 640px) and (max-width: 767px){
+        @media (min-width: 640px) and (max-width: 767px) {
             height: 96px;
         }
-        @media (min-width: 480px) and (max-width: 639px){
+        @media (min-width: 480px) and (max-width: 639px) {
             height: 141px;
         }
-        @media (min-width: 412px) and (max-width: 479px){
+        @media (min-width: 412px) and (max-width: 479px) {
             height: 122px;
         }
-        @media (max-width: 411px){
+        @media (max-width: 411px) {
             height: 111px;
         }
         img {
@@ -983,7 +995,7 @@ img {
                 height: 100%;
                 z-index: -1;
             }
-            @media (min-width: 768px) and (max-width: 1023px){
+            @media (min-width: 768px) and (max-width: 1023px) {
                 height: 100%;
                 left: 0;
                 position: absolute;
@@ -991,24 +1003,24 @@ img {
                 width: 100%;
                 z-index: -1;
             }
-            @media (min-width: 640px) and (max-width: 767px){
+            @media (min-width: 640px) and (max-width: 767px) {
                 height: 76px;
                 width: 135px;
                 position: relative;
             }
-            @media (min-width: 480px) and (max-width: 639px){
+            @media (min-width: 480px) and (max-width: 639px) {
                 height: 121px;
                 width: 215px;
             }
-            @media (min-width: 412px) and (max-width: 479px){
+            @media (min-width: 412px) and (max-width: 479px) {
                 height: 102px;
                 width: 181px;
             }
-            @media (max-width: 411px){
+            @media (max-width: 411px) {
                 height: 91px;
                 width: 162.5px;
             }
-            @media (max-width: 330px){
+            @media (max-width: 330px) {
                 width: 145px;
             }
         }
@@ -1033,34 +1045,34 @@ img {
             @media (min-width: 1366px) {
                 width: 190px;
             }
-            @media (min-width: 1280px) and (max-width: 1365px){
+            @media (min-width: 1280px) and (max-width: 1365px) {
                 width: 175px;
             }
-            @media (min-width: 1024px) and (max-width: 1279px){
+            @media (min-width: 1024px) and (max-width: 1279px) {
                 width: 140px;
             }
-            @media (min-width: 800px) and (max-width: 1023px){
+            @media (min-width: 800px) and (max-width: 1023px) {
                 width: 253px;
             }
-            @media (min-width: 768px) and (max-width: 799px){
+            @media (min-width: 768px) and (max-width: 799px) {
                 width: 242.5;
             }
-            @media (min-width: 640px) and (max-width: 767px){
+            @media (min-width: 640px) and (max-width: 767px) {
                 width: 145px;
             }
-            @media (min-width: 480px) and (max-width: 639px){
+            @media (min-width: 480px) and (max-width: 639px) {
                 width: 225px;
             }
-            @media (min-width: 412px) and (max-width: 479px){
+            @media (min-width: 412px) and (max-width: 479px) {
                 width: 191px;
             }
-            @media (min-width: 375px) and (max-width: 411px){
+            @media (min-width: 375px) and (max-width: 411px) {
                 width: 172.5px;
             }
-            @media (max-width: 374px){
+            @media (max-width: 374px) {
                 width: 165px;
             }
-            @media (max-width: 360px){
+            @media (max-width: 360px) {
                 width: 120px;
             }
             .ranking-item-title {
@@ -1068,7 +1080,7 @@ img {
                 margin-top: -3px;
                 max-height: 40px;
                 overflow: hidden;
-                @media (max-width: 330px){
+                @media (max-width: 330px) {
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;

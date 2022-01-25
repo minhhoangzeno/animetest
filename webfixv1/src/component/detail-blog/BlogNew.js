@@ -38,14 +38,14 @@ export default function BlogNew() {
         setLoading(false)
     }
     return (
-        <div className='anime-news__left collumn-super'>
+        <div className='anime-news__left detail-blog__new collumn-super'>
             <div className='section section__title section-title-small'>
                 <div className='section__title--border'></div>
                 <div className='section__title--background'>
                     TIN KHÁC
                 </div>
             </div>
-            <div className='wrapper-item'>
+            <div className='wrapper-item__news'>
                 {blogs.length > 0 && blogs.map((blog, index) => {
                     return (
                         <div className='anime-news__left--item' key={index} >

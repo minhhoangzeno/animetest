@@ -51,7 +51,7 @@ export default function NewsManga() {
                     </div>
                 </div>}
 
-                <div className='wrapper xs__col'>
+                <div className='wrapper__manga xs__col'>
                     {blogLists.length > 0 && blogLists.map((blog, index) => {
                         return (
                             <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >

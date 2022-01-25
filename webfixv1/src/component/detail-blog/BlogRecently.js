@@ -57,7 +57,6 @@ export default function BlogRecently() {
                                 </a>
                             </div>
                         </div>
-
                     )
                 })}
             </div>

@@ -21,11 +21,13 @@
         float: left;
         .thumbnail-item {
             height: 144px;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+            span{
+                width: 100% !important;
+                height: 100% !important;
+                img{
+                    width: 100% !important;
+                    height: 100% !important; 
+                }
             }
         }
         .content-item {

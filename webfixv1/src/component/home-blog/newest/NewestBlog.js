@@ -47,7 +47,7 @@ export default function NewestBlog() {
                     TIN MỚI NHẤT
                 </div>
             </div>
-            <div className='wrapper-item'>
+            <div className='wrapper-item__news'>
                 {blogs.length > 0 && blogs.map((blog, index) => {
                     return (
                         <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >

@@ -30,7 +30,6 @@ img {
         }
         &--item {
             display: flex;
-            
             margin-bottom: 10px;
             @media (max-width: 1023px){
                 flex-direction: column;
@@ -47,6 +46,15 @@ img {
                 @media (max-width: 1023px) {
                     height: 229px;
                     width: 100%;
+                    margin-bottom: 0;
+                }
+                span{
+                    width: 100% !important;
+                    height: 100% !important;
+                    img{
+                        width: 100% !important;
+                        height: 100% !important; 
+                    }
                 }
             }
         }
