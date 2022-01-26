@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { searchVideoByCategory } from '../../../utils/searchVideoByCategory';
+import Link from 'next/link';
+import { convertUrlSlug } from '../../../utils/RegexUrl';
 export default function VideoAnimeNews() {
     const [videos, setVideos] = useState([])
     useEffect(() => {
@@ -16,7 +18,7 @@ export default function VideoAnimeNews() {
                 <div className='anime-news__right--video collumn-medium'>
                     {videos?.map((video, index) => {
                         return (
-                            <a href='#' target='blank' key={index} >
+                            <Link href={`/video/${convertUrlSlug(video?.title.substring(0, 35))}-${video?.id}`} key={index} >
                                 <div className='item__video'>
                                     <div className='thumbnail__video'>
                                         <Image unoptimized loader={() => { return `${video?.photoURL}` }} src={video?.photoURL} width='300' height="225" />
@@ -27,15 +29,13 @@ export default function VideoAnimeNews() {
                                         </div>
                                     </div>
                                     <div className='content__video'>
-                                        <a href='#'>
-                                            <h3 className="video-item-title">{video.title}</h3>
-                                        </a>
+                                        <h3 className="video-item-title">{video.title}</h3>
                                         <span className="video-item-date">
                                             {video.createdDate.toDate().toLocaleString('vi')}
                                         </span>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         )
                     })}
                 </div>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { firestore } from '../../../utils/firebaseInit';
 import Image from 'next/image';
 import moment from 'moment';
+import Link from 'next/link';
+import { convertUrlSlug } from '../../../utils/RegexUrl';
 export default function FavouriteMainHomeBlog() {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(false)
@@ -46,19 +48,21 @@ export default function FavouriteMainHomeBlog() {
                 </div>
                 {blogs.map((blog, index) => {
                     return (
-                        <div className='xs-item' key={index} >
-                            <div className='item__small--thumbnail item__thumbnail'>
-                                <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='200' height="125" />
+                        <Link href={`/blog/${convertUrlSlug(blog?.title.substring(0, 35))}-${blog?.id}`} key={index} >
+                            <div className='xs-item' >
+                                <div className='item__small--thumbnail item__thumbnail'>
+                                    <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='200' height="125" />
+                                </div>
+                                <div className='item__small--content'>
+                                    <a href='#'>
+                                        <h3 className="item__title">{blog.title}</h3>
+                                    </a>
+                                    <a href='#'>
+                                        <span className="item-genre genre-9">{blog.category.title}</span>
+                                    </a>
+                                </div>
                             </div>
-                            <div className='item__small--content'>
-                                <a href='#'>
-                                    <h3 className="item__title">{blog.title}</h3>
-                                </a>
-                                <a href='#'>
-                                    <span className="item-genre genre-9">{blog.category.title}</span>
-                                </a>
-                            </div>
-                        </div>
+                        </Link>
                     )
                 })}
             </div>}

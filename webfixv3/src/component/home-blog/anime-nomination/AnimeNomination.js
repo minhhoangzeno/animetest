@@ -47,30 +47,24 @@ export default function AnimeNomination() {
                 <div className='anime-nomination__col large__col'>
                     {blogLefts.length > 0 && blogLefts.map((blog, index) => {
                         return (
-                            <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
-                                <div className='large__col--item' key={index} >
+                            <Link href={`/blog/${convertUrlSlug(blog?.title.substring(0, 35))}-${blog?.id}`} key={index} >
+                                <div className='large__col--item'  >
                                     <div className='wrapper'>
                                         {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='500' height="225" />
                                             : <Image src={require('../../../images/item.jpg')} width='500' height="225" />
                                         }
                                         <div className='item-meta'>
-                                            <a href='#'>
-                                                <span className="item-genre">Đề cử anime </span>
-                                            </a>
+                                            <span className="item-genre">Đề cử anime </span>
                                             <span className="item-date">
                                                 / {blog?.createdDate.toDate().toLocaleString('vi')}
                                             </span>
-                                            <a href='#'>
-                                                <h3 className='item__title'>
-                                                    {blog?.title}
-                                                </h3>
-                                            </a>
+                                            <h3 className='item__title'>
+                                                {blog?.title}
+                                            </h3>
                                         </div>
                                     </div>
                                 </div>
                             </Link>
-
-
                         )
                     })}
                 </div>

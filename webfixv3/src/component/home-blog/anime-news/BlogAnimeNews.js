@@ -18,8 +18,8 @@ export default function BlogAnimeNews() {
                 <div className='anime-news__left collumn-super'>
                     {blogs.map((blog, index) => {
                         return (
-                            <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
-                                <div className={`anime-news__left--item ${index > 0 && 'lg-hidden'}`} key={index} >
+                            <Link href={`/blog/${convertUrlSlug(blog?.title.substring(0, 35))}-${blog?.id}`} key={index} >
+                                <div className={`anime-news__left--item ${index > 0 && 'lg-hidden'}`}  >
                                     <div className='item__thumbnail'>
                                         {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='300' height="225" />
                                             : <Image src={require('../../../images/item.jpg')} width='300' height="225" />
