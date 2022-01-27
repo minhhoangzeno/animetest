@@ -23,7 +23,7 @@ export default function VideoManga() {
                 </a>
             </div>
             <div className='tray__content manga__wrapp'>
-                {videos.length > 0 && videos.map((video, index) => {
+                {videos?.length > 0 && videos.map((video, index) => {
                     return (
                         <Link href={`/video/${convertUrlSlug(video.title.substring(0, 35))}-${video.id}`} key={index} >
                             <div className="manga__wrap--item" style={{cursor:'pointer'}} >

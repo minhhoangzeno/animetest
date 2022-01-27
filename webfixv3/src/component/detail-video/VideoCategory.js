@@ -29,7 +29,7 @@ export default function VideoCategory({ videoId, categoryId }) {
     }
     return (
         <>
-            {videos.length > 0 && <div className="player__sidebar">
+            {videos?.length > 0 && <div className="player__sidebar">
                 <div className="player__sidebar--header  ">
                     <div className="tab-item tab-episode activated">Danh sách video cùng danh mục </div>
                 </div>

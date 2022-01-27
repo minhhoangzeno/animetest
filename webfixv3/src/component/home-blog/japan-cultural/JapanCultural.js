@@ -16,7 +16,7 @@ export default function JapanCultural() {
         let data = await searchBlogByCategory('Văn hóa Nhật Bản', 4);
         let respBig = [];
         let respList = [];
-        data.map((item, index) => {
+        data?.map((item, index) => {
             if (index < 1) {
                 respBig.push(item)
             } else {
@@ -36,7 +36,7 @@ export default function JapanCultural() {
                     </div>
                 </div>
                 <div className='wrapper-super'>
-                    {blogBigs.length > 0 && <div className='item__large'>
+                    {blogBigs?.length > 0 && <div className='item__large'>
                         <div className='item__large--thumbnail'>
                             <a href='#'>
                                 {blogBigs[0]?.photoURL ? <Image unoptimized loader={() => { return `${blogBigs[0]?.photoURL}` }} src={blogBigs[0]?.photoURL} width='500' height="225" />
@@ -57,7 +57,7 @@ export default function JapanCultural() {
                     </div>}
 
                     <div className='wrapper-medium'>
-                        {blogLists.length > 0 && blogLists.map((blog, index) => {
+                        {blogLists?.length > 0 && blogLists.map((blog, index) => {
                             return (
                                 <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
                                     <div className='item__medium' key={index} >

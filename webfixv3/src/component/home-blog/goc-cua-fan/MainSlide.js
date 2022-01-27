@@ -55,7 +55,7 @@ export default function MainSlide() {
                 <div className='slide__title'>
                     <a href="#">[Góc của fan]</a>
                 </div>
-                {blogs.length > 0 && <Slider {...settings}>
+                {blogs?.length > 0 && <Slider {...settings}>
                     {blogs?.map((blog, index) => {
                         return (
                             <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >

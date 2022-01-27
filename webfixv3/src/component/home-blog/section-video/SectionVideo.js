@@ -11,7 +11,7 @@ export default function SectionVideo() {
         let data = await searchVideoByCategory('', 4);
         let respBig = [];
         let respList = [];
-        data.map((item, index) => {
+        data?.map((item, index) => {
             if (index < 1) {
                 respBig.push(item)
             } else {
@@ -28,7 +28,7 @@ export default function SectionVideo() {
                 <div className='big-wrapper'>
                     <div className='left__col'>
                         <a href='#' target='blank'>
-                            {videoBigs.length > 0 && <div className='wrapper big-video'>
+                            {videoBigs?.length > 0 && <div className='wrapper big-video'>
                                 <div className='wrapper-image rps-iframe'>
                                     {videoBigs[0]?.photoURL ? <Image unoptimized loader={() => { return `${videoBigs[0]?.photoURL}` }} src={videoBigs[0]?.photoURL} width='300' height="225" />
                                         : <Image src={require('../../../images/item.jpg')} width='600' height="225" />
@@ -58,7 +58,7 @@ export default function SectionVideo() {
                         </a>
                     </div>
                     <div className='right__col'>
-                        {videoLists.length > 0 && videoLists.map((video, index) => {
+                        {videoLists?.length > 0 && videoLists.map((video, index) => {
                             return (
                                 <a href='#' target='blank' key={index} >
                                     <div className='item__video'>

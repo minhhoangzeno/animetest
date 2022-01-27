@@ -21,7 +21,7 @@ export default function AnimeNomination() {
         let respLeft = [];
         let respMedium = [];
         let respRight = [];
-        data.map((item, index) => {
+        data?.map((item, index) => {
             if (index < 3) {
                 respLeft.push(item)
             } else if (index < 7) {
@@ -45,7 +45,7 @@ export default function AnimeNomination() {
             </div>
             <div className='big__wrapper'>
                 <div className='anime-nomination__col large__col'>
-                    {blogLefts.length > 0 && blogLefts.map((blog, index) => {
+                    {blogLefts?.length > 0 && blogLefts.map((blog, index) => {
                         return (
                             <Link href={`/blog/${convertUrlSlug(blog?.title.substring(0, 35))}-${blog?.id}`} key={index} >
                                 <div className='large__col--item'  >
@@ -69,7 +69,7 @@ export default function AnimeNomination() {
                     })}
                 </div>
                 <div className='anime-nomination__col medium__col'>
-                    {blogMediums.length > 0 && blogMediums.map((blog, index) => {
+                    {blogMediums?.length > 0 && blogMediums.map((blog, index) => {
                         return (
                             <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
                                 <div className={`medium__col--item ${index == 3 && 'sm-hidden'}`} key={index} >
@@ -107,7 +107,7 @@ export default function AnimeNomination() {
                         }
                     </div>
                     <div className='wrapper'>
-                        {blogRights.length > 0 && blogRights.map((blog, index) => {
+                        {blogRights?.length > 0 && blogRights.map((blog, index) => {
                             return (
                                 <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
                                     <div className='xs-item' key={index} >

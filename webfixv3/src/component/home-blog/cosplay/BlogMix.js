@@ -15,7 +15,7 @@ export default function BlogMix() {
         let data = await searchBlogByCategory('Tổng hợp', 5);
         let respBig = [];
         let respList = [];
-        data.map((item, index) => {
+        data?.map((item, index) => {
             if (index < 1) {
                 respBig.push(item)
             } else {
@@ -33,7 +33,7 @@ export default function BlogMix() {
                     TỔNG HỢP
                 </div>
             </div>
-            {blogBigs.length > 0 &&
+            {blogBigs?.length > 0 &&
                 <Link href={`/blog/${convertUrlSlug(blogBigs[0].title.substring(0, 35))}-${blogBigs[0].id}`} >
                     <div className="item__medium">
                         <div className="item__medium--thumbnail">
@@ -53,7 +53,7 @@ export default function BlogMix() {
                     </div>
                 </Link>
             }
-            {blogLists.length > 0 && blogLists.map((blog, index) => {
+            {blogLists?.length > 0 && blogLists.map((blog, index) => {
                 return (
                     <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
                         <a className="item-text" key={index} ><li>{blog?.title}</li></a>

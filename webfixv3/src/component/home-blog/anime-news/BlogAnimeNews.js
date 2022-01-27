@@ -14,7 +14,7 @@ export default function BlogAnimeNews() {
     }
     return (
         <>
-            {blogs.length > 0 &&
+            {blogs?.length > 0 &&
                 <div className='anime-news__left collumn-super'>
                     {blogs.map((blog, index) => {
                         return (

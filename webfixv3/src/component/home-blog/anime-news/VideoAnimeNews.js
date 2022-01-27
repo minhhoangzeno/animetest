@@ -14,7 +14,7 @@ export default function VideoAnimeNews() {
     }
     return (
         <>
-            {videos.length > 0 &&
+            {videos?.length > 0 &&
                 <div className='anime-news__right--video collumn-medium'>
                     {videos?.map((video, index) => {
                         return (
@@ -29,7 +29,7 @@ export default function VideoAnimeNews() {
                                         </div>
                                     </div>
                                     <div className='content__video'>
-                                        <h3 className="video-item-title">{video.title}</h3>
+                                        <h3 className="video-item-title">{video?.title}</h3>
                                         <span className="video-item-date">
                                             {video.createdDate.toDate().toLocaleString('vi')}
                                         </span>

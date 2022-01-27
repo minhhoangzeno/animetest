@@ -16,7 +16,7 @@ export default function BlogInDay() {
                 .orderBy("views", "desc")
                 .limit(LIMIT)
 
-            if (blogs && blogs.length > 0) {
+            if (blogs && blogs?.length > 0) {
                 filter = filter.startAfter(blogs[blogs.length - 1].createdDate)
             }
             let querySnapshot = await (await filter.get()).docs
@@ -41,7 +41,7 @@ export default function BlogInDay() {
                 </div>
             </div>
             <div className='xs-wrapper'>
-                {blogs.length > 0 && blogs.map((blog, index) => {
+                {blogs?.length > 0 && blogs.map((blog, index) => {
                     return (
                         <div className='xs-item' key={index} >
                             <div className='item__small--thumbnail item__thumbnail'>

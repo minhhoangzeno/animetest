@@ -15,7 +15,7 @@ export default function NewsManga() {
         let data = await searchBlogByCategory('Tin tức Manga', 6);
         let respBig = [];
         let respList = [];
-        data.map((item, index) => {
+        data?.map((item, index) => {
             if (index < 1) {
                 respBig.push(item)
             } else {
@@ -34,7 +34,7 @@ export default function NewsManga() {
                 </div>
             </div>
             <div className='wrapper-medium'>
-                {blogBigs.length > 0 && <div className="item__medium">
+                {blogBigs?.length > 0 && <div className="item__medium">
                     <div className="item__medium--thumbnail">
                         <a href="#">
                             {blogBigs[0]?.photoURL ? <Image unoptimized loader={() => { return `${blogBigs[0]?.photoURL}` }} src={blogBigs[0]?.photoURL} width='500' height="225" />
@@ -52,7 +52,7 @@ export default function NewsManga() {
                 </div>}
 
                 <div className='wrapper__manga xs__col'>
-                    {blogLists.length > 0 && blogLists.map((blog, index) => {
+                    {blogLists?.length > 0 && blogLists.map((blog, index) => {
                         return (
                             <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} >
                                 <div className={`xs-item ${index > 2 && ' lg-hiden'}`} key={index} >

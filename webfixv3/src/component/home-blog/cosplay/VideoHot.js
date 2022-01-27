@@ -20,7 +20,7 @@ export default function VideoHot() {
                 </div>
             </div>
             <div className='collumn-right__item'>
-                {videos.length > 0 && videos.map((video, index) => {
+                {videos?.length > 0 && videos.map((video, index) => {
                     return (
                         <a href='#' target='blank' key={index}>
                             <div className='item__video'>
