@@ -45,7 +45,7 @@ export default function BlogInDay({ blogId }) {
             <div className='xs-wrapper'>
                 {blogs?.length > 0 && blogs.map((blog, index) => {
                     return (
-                        <Link href={`/blog/${convertUrlSlug(blog.title.substring(0, 35))}-${blog.id}`} key={index} >
+                        <Link href={`/blog/${convertUrlSlug(blog?.title.substring(0, 35))}-${blog?.id}`} key={index} >
                             <div className='xs-item' style={{ cursor: 'pointer' }} >
                                 <div className='item__small--thumbnail item__thumbnail'>
                                     {blog?.photoURL ? <Image unoptimized loader={() => { return `${blog?.photoURL}` }} src={blog?.photoURL} width='300' height="180" />

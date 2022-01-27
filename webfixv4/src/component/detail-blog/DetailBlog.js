@@ -23,7 +23,7 @@ export default function DetailBlog({ blog }) {
         fetchViews()
     }, [])
     return (
-        <div>
+        <div className='detail-page'>
             <div className='container'>
                 <NavHomeBlog />
             </div>

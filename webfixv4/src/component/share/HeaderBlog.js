@@ -1,5 +1,6 @@
 import React from 'react'
-import Logo from '../../images/logo.png';
+import BigLogo from '../../images/logo.png';
+import SmLogo from '../../images/smlogo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 export default function HeaderBlog() {
@@ -11,7 +12,8 @@ export default function HeaderBlog() {
                         <div className='wrapper__header--left'>
                             <div className="logo">
                                 <a href="/">
-                                    <Image src={Logo} alt='' />
+                                    <Image className='big-logo' src={BigLogo} alt='' />
+                                    {/* <Image className='sm-logo' src={SmLogo} alt='' /> */}
                                 </a>
                             </div>
                             <div className="navbar__menu">
