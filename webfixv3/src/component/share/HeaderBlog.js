@@ -1,5 +1,4 @@
 import React from 'react'
-import Logo from '../../images/logo.png';
 import Image from 'next/image';
 export default function HeaderBlog() {
     return (
@@ -10,7 +9,7 @@ export default function HeaderBlog() {
                         <div className='wrapper__header--left'>
                             <div className="logo">
                                 <a href="/">
-                                    <Image src={Logo} alt='' />
+                                    <Image src={require('../../images/logo.png')} width='300' height="325" />
                                 </a>
                             </div>
                             <div className="navbar__menu">

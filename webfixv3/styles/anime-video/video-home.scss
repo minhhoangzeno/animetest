@@ -763,14 +763,18 @@ img {
             padding: 30px 5px 5px;
         }
         @media (min-width: 640px) and (max-width: 767px) {
-            font-size: 16px;
+            font-size: 14px;
             margin-top: 5px;
+            padding: 5px;
         }
         @media (min-width: 412px) and (max-width: 639px) {
-            font-size: 15px;
+            font-size: 12px;
+            padding: 5px;
         }
         @media (max-width: 411px) {
-            font-size: 14px;
+            font-size: 12px;
+            padding: 5px;
+
         }
     }
     .manga-item-meta-info {
